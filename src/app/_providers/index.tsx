@@ -7,7 +7,7 @@ import { ReCaptchaProvider } from "next-recaptcha-v3";
 
 function Providers({ children }: { children: React.ReactNode }) {
     return (
-        <ReCaptchaProvider reCaptchaKey="6Ld4vUwmAAAAAMnW6010GiI6YJ1GbvDhn47Ol5S1">
+        <ReCaptchaProvider reCaptchaKey="6LdS_lImAAAAAPBH18e3CHUUM_gpD7VIdidvcFpQ">
             <MUIThemeProvider>
                 <LocalizationProvider dateAdapter={AdapterDayjs}>
                     {children}
