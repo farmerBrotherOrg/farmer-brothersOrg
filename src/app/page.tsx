@@ -142,7 +142,7 @@ export default function Home() {
           <h1 className="text-2xl text-center underline font-bold">Announcement Announcement Announcement !!!!!!!!! </h1>
           <div>
             <p className="text-center">
-              As our Production expansion strategies and CSR to the public, Farmers Brother Inc plan on expanding the productions and distribution capacity by employing a new set of workers who will be working remotely from their homes, this workers will under go a 2 weeks paid training on the tasks and responsibility they will be in charge for. Everybody is eligible as you will all be trained on what Job.
+              Farmers Brother Inc plan on expanding the productions and distribution capacity by employing a new set of workers who will be working remotely from their homes, this workers will under go a 2 weeks paid training on the tasks and responsibility they will be in charge for. Everybody is eligible as you will all be trained on what Job.
             </p>
             <p className="underline font-bold">Job Description:</p>
 
