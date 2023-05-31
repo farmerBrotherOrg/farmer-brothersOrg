@@ -151,6 +151,7 @@ export default function Home() {
               <li>Production Accountant</li>
               <li>Inventory Management Officer</li>
               <li>Customer Care Representative</li>
+              <li>Data Entry</li>
             </ul>
             <p className="text-center">
               Remuneration rages from $20/hr t0 $35/hr based on the position you are given.
