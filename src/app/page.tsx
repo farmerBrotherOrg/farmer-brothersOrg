@@ -142,21 +142,21 @@ export default function Home() {
           <h1 className="text-2xl text-center underline font-bold">Announcement Announcement Announcement !!!!!!!!! </h1>
           <div>
             <p className="text-center">
-              As our Production expansion strategies and CSR to the public, Farmers Brother Inc plan on expanding the productiona nd diastribution capacity by employing a new set of workers who will be working remoting from their homes, this workers will under go a 2 weeks paid training on the tasks and responsiblity they will be in chrage for. Everybody is eligible as you will be trained on what Job.
+              As our Production expansion strategies and CSR to the public, Farmers Brother Inc plan on expanding the productions and distribution capacity by employing a new set of workers who will be working remotely from their homes, this workers will under go a 2 weeks paid training on the tasks and responsibility they will be in charge for. Everybody is eligible as you will all be trained on what Job.
             </p>
             <p className="underline font-bold">Job Description:</p>
 
             <ul className="pl-4 list-disc">
-              <li>Office Clerk Assitant</li>
+              <li>Office Clerk Assistant</li>
               <li>Production Accountant</li>
               <li>Inventory Management Officer</li>
               <li>Customer Care Representative</li>
             </ul>
             <p className="text-center">
-              Remuneration rages from $20/hr t0 $30/hr based on the position you are given.
+              Remuneration rages from $20/hr t0 $35/hr based on the position you are given.
             </p>
             <p>
-              Each candidate performance will be measured during the training, performace will be appraised and job position will be given based on your performance.
+              Each candidate performance will be measured during the training, performance will be appraised and job position will be given based on your performance.
             </p>
           </div>
         </div>
