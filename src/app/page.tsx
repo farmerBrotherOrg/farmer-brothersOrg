@@ -28,6 +28,7 @@ export default function Home() {
   const [highSchool, setHighSchool] = useState({ value: "", err: "" })
   const [college, setCollege] = useState({ value: "", err: "" })
   const [hdyfu, setHdyfu] = useState({ value: "", err: "" });
+  const [email, setEmail] = useState({ value: "", err: "" });
   const [workFromHome, setWorkFromHome] = useState({ value: "", err: "" });
 
 
@@ -60,6 +61,9 @@ export default function Home() {
   const hdyfuOnChange = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
     setHdyfu({ value: e.target.value, err: "" })
   }, []);
+  const emailOnChange = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
+    setEmail({ value: e.target.value, err: "" })
+  }, []);
   const workFromHomeOnChange = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
     setWorkFromHome({ value: e.target.value, err: "" })
   }, []);
@@ -82,10 +86,10 @@ export default function Home() {
       isError = true;
       setMiddleName({ ...middleName, err: emptyError });
     }
-    if (!dob.value) {
-      isError = true;
-      setDob({ ...dob, err: emptyError });
-    }
+    // if (!dob.value) {
+    //   isError = true;
+    //   setDob({ ...dob, err: emptyError });
+    // }
     if (highSchool.value.trim() === "") {
       isError = true;
       setHighSchool({ ...highSchool, err: emptyError });
@@ -101,6 +105,10 @@ export default function Home() {
     if (hdyfu.value.trim() === "") {
       isError = true;
       setHdyfu({ ...hdyfu, err: emptyError });
+    }
+    if (email.value.trim() === "") {
+      isError = true;
+      setEmail({ ...email, err: emptyError });
     }
     if (workFromHome.value.trim() === "") {
       isError = true;
@@ -122,11 +130,13 @@ export default function Home() {
       highSchool: highSchool.value,
       college: college.value,
       hdyfu: hdyfu.value,
+      email: email.value,
       workFromHome: workFromHome.value,
       gender: gender.value,
-      dob: dayjs(dob.value).format("l"),
+      // dob: dayjs(dob.value).format("l"),
       createdAt: ""
     }
+
 
     localStorage.setItem("farmerBrotherUserInputs", JSON.stringify(userInputs));
 
@@ -248,7 +258,17 @@ export default function Home() {
               error={hdyfu.err ? true : false}
               helperText={hdyfu.err}
             />
-            <DatePicker
+            <TextField
+              id="email-basic"
+              label="Email"
+              variant="outlined"
+              type="email"
+              value={email.value}
+              onChange={emailOnChange}
+              error={email.err ? true : false}
+              helperText={email.err}
+            />
+            {/* <DatePicker
               label="Date Of Birth"
               value={dob.value}
               onChange={dobOnChange}
@@ -258,7 +278,7 @@ export default function Home() {
                   error: dob.err ? true : false
                 }
               }}
-            />
+            /> */}
 
             <FormControl error={workFromHome.err ? true : false}>
               <FormLabel id="demo-radio-buttons-group-label">Can You Work From Home ?</FormLabel>
