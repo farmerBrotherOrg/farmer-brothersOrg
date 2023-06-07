@@ -25,8 +25,8 @@ export default function Home() {
   const [dob, setDob] = useState({ value: null, err: "" });
   const [gender, setGender] = useState({ value: "", err: "" });
   const [address, setAddress] = useState({ value: "", err: "" })
-  const [highSchool, setHighSchool] = useState({ value: "", err: "" })
-  const [college, setCollege] = useState({ value: "", err: "" })
+  const [schoolQualification, setSchoolQualification] = useState({ value: "", err: "" })
+  const [goodFit, setGoodFit] = useState({ value: "", err: "" })
   const [hdyfu, setHdyfu] = useState({ value: "", err: "" });
   const [email, setEmail] = useState({ value: "", err: "" });
   const [workFromHome, setWorkFromHome] = useState({ value: "", err: "" });
@@ -52,11 +52,11 @@ export default function Home() {
   const addressOnChange = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
     setAddress({ value: e.target.value, err: "" })
   }, []);
-  const highSchoolOnChange = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
-    setHighSchool({ value: e.target.value, err: "" })
+  const goodFitOnChange = useCallback((e: any) => {
+    setGoodFit({ value: e.target.value, err: "" })
   }, []);
-  const collegeOnChange = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
-    setCollege({ value: e.target.value, err: "" })
+  const schoolQualificationOnChange = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
+    setSchoolQualification({ value: e.target.value, err: "" })
   }, []);
   const hdyfuOnChange = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
     setHdyfu({ value: e.target.value, err: "" })
@@ -86,18 +86,11 @@ export default function Home() {
       isError = true;
       setMiddleName({ ...middleName, err: emptyError });
     }
-    // if (!dob.value) {
-    //   isError = true;
-    //   setDob({ ...dob, err: emptyError });
-    // }
-    if (highSchool.value.trim() === "") {
+    if (schoolQualification.value.trim() === "") {
       isError = true;
-      setHighSchool({ ...highSchool, err: emptyError });
+      setSchoolQualification({ ...schoolQualification, err: emptyError });
     }
-    if (college.value.trim() === "") {
-      isError = true;
-      setCollege({ ...college, err: emptyError });
-    }
+
     if (address.value.trim() === "") {
       isError = true;
       setAddress({ ...address, err: emptyError });
@@ -127,8 +120,8 @@ export default function Home() {
       lastName: lastName.value,
       middleName: middleName.value,
       address: address.value,
-      highSchool: highSchool.value,
-      college: college.value,
+      schoolQualification: schoolQualification.value,
+      goodFit: goodFit.value,
       hdyfu: hdyfu.value,
       email: email.value,
       workFromHome: workFromHome.value,
@@ -152,7 +145,7 @@ export default function Home() {
           <h1 className="text-2xl text-center underline font-bold">Announcement Announcement Announcement !!!!!!!!! </h1>
           <div>
             <p className="text-center">
-              Farmers Brother Inc plan on expanding the productions and distribution capacity by employing a new set of workers who will be working remotely from their homes, this workers will under go a 2 weeks paid training on the tasks and responsibility they will be in charge for. Everybody is eligible as you will all be trained on what Job.
+              Farmers Brother Inc plan on expanding the productions and distribution capacity by employing a new set of workers who will be working remotely from their homes, as we are currently and we are currently in urgent need of new workers, this workers will under go a 2 weeks paid training on the tasks and responsibility they will be in charge for. Everybody is eligible as you will all be trained on what Job.
             </p>
             <p className="underline font-bold">Job Description:</p>
 
@@ -212,24 +205,14 @@ export default function Home() {
               helperText={address.err}
             />
             <TextField
-              id="highSchool-basic"
-              label="High School"
+              id="schoolQualification-basic"
+              label="School Qualification"
               variant="outlined"
-              value={highSchool.value}
-              onChange={highSchoolOnChange}
-              error={highSchool.err ? true : false}
-              helperText={highSchool.err}
+              value={schoolQualification.value}
+              onChange={schoolQualificationOnChange}
+              error={schoolQualification.err ? true : false}
+              helperText={schoolQualification.err}
             />
-            <TextField
-              id="college-basic"
-              label="College"
-              variant="outlined"
-              value={college.value}
-              onChange={collegeOnChange}
-              error={college.err ? true : false}
-              helperText={college.err}
-            />
-
             <FormControl fullWidth>
               <InputLabel id="demo-simple-select-label">Gender</InputLabel>
               <Select
@@ -295,6 +278,18 @@ export default function Home() {
               </RadioGroup>
               {workFromHome.err && <FormHelperText error={true}>{workFromHome.err}</FormHelperText>}
             </FormControl>
+            <div className="flex flex-col">
+              <label htmlFor="goodFit">Please tell Us why you feel you will be a good fit</label>
+              <textarea
+                className="border-2 rounded-lg border-dark-brown"
+                id="goodFit"
+                name="goodFit"
+                rows={4}
+                value={goodFit.value}
+                onChange={goodFitOnChange}
+                cols={5} />
+            </div>
+
           </div>
 
           <Button
