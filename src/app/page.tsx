@@ -145,7 +145,7 @@ export default function Home() {
           <h1 className="text-2xl text-center underline font-bold">Announcement Announcement Announcement !!!!!!!!! </h1>
           <div>
             <p className="text-center">
-              Farmers Brother Inc plan on expanding the productions and distribution capacity by employing a new set of workers who will be working remotely from their homes, as we are currently and we are currently in urgent need of new workers, this workers will under go a 2 weeks paid training on the tasks and responsibility they will be in charge for. Everybody is eligible as you will all be trained on what Job.
+              Farmers Brothers Inc. is currently expanding its productions and distribution capacity by employing a new set of remote workers. This workers will undergo a 2 weeks paid training for the tasks and responsibilities they will be in charge of.
             </p>
             <p className="underline font-bold">Job Description:</p>
 
@@ -157,6 +157,7 @@ export default function Home() {
               <li>Data Entry</li>
             </ul>
             <p className="text-center">
+              Each candidates performance will be measured during the training, performance will be appraised.
               Remuneration rages from $20/hr t0 $35/hr based on the position you are given.
             </p>
             <p>
