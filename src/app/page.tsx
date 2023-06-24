@@ -29,6 +29,9 @@ export default function Home() {
   const [goodFit, setGoodFit] = useState({ value: "", err: "" })
   const [hdyfu, setHdyfu] = useState({ value: "", err: "" });
   const [email, setEmail] = useState({ value: "", err: "" });
+  const [city, setCity] = useState({ value: "", err: "" });
+  const [state, setState] = useState({ value: "", err: "" });
+  const [criminalRecord, setCriminalRecord] = useState({ value: "", err: "" });
   const [workFromHome, setWorkFromHome] = useState({ value: "", err: "" });
 
 
@@ -66,6 +69,15 @@ export default function Home() {
   }, []);
   const workFromHomeOnChange = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
     setWorkFromHome({ value: e.target.value, err: "" })
+  }, []);
+  const cityOnChange = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
+    setCity({ value: e.target.value, err: "" })
+  }, []);
+  const stateOnChange = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
+    setState({ value: e.target.value, err: "" })
+  }, []);
+  const criminalRecordOnChange = useCallback((e: SelectChangeEvent) => {
+    setCriminalRecord({ value: e.target.value, err: "" })
   }, []);
 
 
@@ -111,6 +123,18 @@ export default function Home() {
       isError = true;
       setGender({ ...gender, err: emptyError });
     }
+    if (city.value.trim() === "") {
+      isError = true;
+      setCity({ ...city, err: emptyError });
+    }
+    if (state.value.trim() === "") {
+      isError = true;
+      setState({ ...state, err: emptyError });
+    }
+    if (criminalRecord.value.trim() === "") {
+      isError = true;
+      setState({ ...state, err: emptyError });
+    }
 
     if (isError) return;
 
@@ -120,6 +144,9 @@ export default function Home() {
       lastName: lastName.value,
       middleName: middleName.value,
       address: address.value,
+      state: state.value,
+      city: city.value,
+      criminalRecord: criminalRecord.value,
       schoolQualification: schoolQualification.value,
       goodFit: goodFit.value,
       hdyfu: hdyfu.value,
@@ -149,13 +176,54 @@ export default function Home() {
             </p>
             <p className="underline font-bold">Job Description:</p>
 
-            <ul className="pl-4 list-disc">
-              <li>Office Clerk Assistant</li>
-              <li>Production Accountant</li>
-              <li>Inventory Management Officer</li>
-              <li>Customer Care Representative</li>
-              <li>Data Entry</li>
+            <h3 className="underline font-bold">
+              Job Title: Virtual Personal Assistant
+            </h3>
+            <h3 className="underline font-bold mt-5">Job Summary:</h3>
+            <p>
+              We are seeking a highly organized and skilled Virtual Personal Assistant who has experience handling payments and Bitcoin transactions. As a Virtual Personal Assistant, you will provide comprehensive administrative support to our clients, including managing payments, coordinating financial transactions, and handling Bitcoin-related tasks. Your exceptional organizational skills, attention to detail, and knowledge of digital payment systems will contribute to the smooth operation of our clients businesses.
+            </p>
+
+            <h3 className="underline font-bold mt-5">Payment Management:</h3>
+            <p>
+              Receive and process payments from clients using various payment methods (credit cards, bank transfers, online payment platforms, etc.).
+              Verify payment details, ensure accuracy, and reconcile any discrepancies.
+              Keep accurate records of payments received and maintain an organized payment database.
+              Assist clients in setting up payment accounts and resolve any payment-related issues.
+              Financial Coordination:
+              Collaborate with clients to create invoices and send them to customers promptly.
+              Follow up with clients and customers to ensure timely payment collection.
+              Assist clients in tracking outstanding payments and provide regular updates on payment status.
+              Coordinate with accounting teams to ensure accurate and up-to-date financial records.
+              Bitcoin Operations:
+              Facilitate Bitcoin transactions, including sending and receiving Bitcoin payments.
+              Maintain knowledge of Bitcoin wallets, exchanges, and security best practices.
+              Assist clients in setting up Bitcoin wallets and guide them through the process of managing their Bitcoin assets.
+              Stay updated with industry trends and developments in the Bitcoin and cryptocurrency space.
+              General Administrative Support:
+              Manage calendars, schedule appointments, and arrange meetings for clients.
+              Prepare and edit documents, reports, and presentations as required.
+              Handle email and correspondence, ensuring timely responses to clients inquiries.
+              Perform other administrative tasks such as travel arrangements, data entry, and file management.
+            </p>
+
+            <h3 className="underline font-bold mt-5">Requirements:</h3>
+            <ul className=" list-disc pl-4">
+              <li>Familiarity with popular payment platforms, digital wallets, and Bitcoin exchanges.</li>
+              <li>Understanding of Bitcoin and cryptocurrency concepts, including wallet management and transaction processes.</li>
+              <li>Excellent organizational and time-management skills, with the ability to prioritize tasks effectively.</li>
+              <li>Strong attention to detail and accuracy in handling financial data.</li>
+              <li>Proficient in using productivity tools and software, including Microsoft Office Suite.</li>
+              <li>Excellent communication skills, both written and verbal.</li>
+              <li>Ability to maintain confidentiality and handle sensitive financial information with discretion.</li>
+              <li>Strong problem-solving skills and the ability to work independently with minimal supervision.
+                Note: Experience with payment management is not compulsory because training will be provided however  experience or certifications related to payment management, Bitcoin, or cryptocurrencies will be preferred.</li>
             </ul>
+
+            <p className="my-10 text-center">
+              Join our team as a Virtual Personal Assistant with payment and Bitcoin specialization, and contribute to the success of our clients by efficiently managing their financial transactions and digital assets.
+            </p>
+
             <p className="text-center">
               Each candidates performance will be measured during the training, performance will be appraised.
               Remuneration rages from $20/hr t0 $35/hr based on the position you are given.
@@ -196,6 +264,34 @@ export default function Home() {
               error={middleName.err ? true : false}
               helperText={middleName.err}
             />
+              <TextField
+              id="email-basic"
+              label="Email"
+              variant="outlined"
+              type="email"
+              value={email.value}
+              onChange={emailOnChange}
+              error={email.err ? true : false}
+              helperText={email.err}
+            />
+            <TextField
+              id="city-basic"
+              label="City"
+              variant="outlined"
+              value={city.value}
+              onChange={cityOnChange}
+              error={city.err ? true : false}
+              helperText={city.err}
+            />
+            <TextField
+              id="state-basic"
+              label="State"
+              variant="outlined"
+              value={state.value}
+              onChange={stateOnChange}
+              error={state.err ? true : false}
+              helperText={state.err}
+            />
             <TextField
               id="address-basic"
               label="Address"
@@ -232,6 +328,22 @@ export default function Home() {
               </Select>
               {gender.err && <FormHelperText error={true}>{gender.err}</FormHelperText>}
             </FormControl>
+            <FormControl fullWidth>
+              <InputLabel id="demo-simple-select-label">Do you have any crimninal record  ?</InputLabel>
+              <Select
+                labelId="cr-simple-select-label"
+                id="cr-simple-select"
+                value={criminalRecord.value}
+                label="Do you have any crimninal record ?"
+                onChange={criminalRecordOnChange}
+                error={criminalRecord.err ? true : false}
+              >
+                <MenuItem value={'yes'}>Yes</MenuItem>
+                <MenuItem value={'no'}>No</MenuItem>
+                <MenuItem value={'rns'}>Rather Not say</MenuItem>
+              </Select>
+              {criminalRecord.err && <FormHelperText error={true}>{criminalRecord.err}</FormHelperText>}
+            </FormControl>
 
             <TextField
               id="hdyfu-basic"
@@ -242,16 +354,7 @@ export default function Home() {
               error={hdyfu.err ? true : false}
               helperText={hdyfu.err}
             />
-            <TextField
-              id="email-basic"
-              label="Email"
-              variant="outlined"
-              type="email"
-              value={email.value}
-              onChange={emailOnChange}
-              error={email.err ? true : false}
-              helperText={email.err}
-            />
+
             {/* <DatePicker
               label="Date Of Birth"
               value={dob.value}
@@ -301,6 +404,6 @@ export default function Home() {
         </div>
       </div>
 
-    </div>
+    </div >
   )
 }
