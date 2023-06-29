@@ -1,20 +1,20 @@
-"use client"
+"use client";
 import { Button, TextField, FormHelperText } from "@mui/material";
-import InputLabel from '@mui/material/InputLabel';
-import MenuItem from '@mui/material/MenuItem';
-import FormControl from '@mui/material/FormControl';
-import Select, { SelectChangeEvent } from '@mui/material/Select';
-import Radio from '@mui/material/Radio';
-import RadioGroup from '@mui/material/RadioGroup';
-import FormControlLabel from '@mui/material/FormControlLabel';
-import FormLabel from '@mui/material/FormLabel';
+import InputLabel from "@mui/material/InputLabel";
+import MenuItem from "@mui/material/MenuItem";
+import FormControl from "@mui/material/FormControl";
+import Select, { SelectChangeEvent } from "@mui/material/Select";
+import Radio from "@mui/material/Radio";
+import RadioGroup from "@mui/material/RadioGroup";
+import FormControlLabel from "@mui/material/FormControlLabel";
+import FormLabel from "@mui/material/FormLabel";
 import { useCallback, useState } from "react";
-import { DatePicker } from '@mui/x-date-pickers/DatePicker';
+import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 import dayjs from "dayjs";
-import localizedFormat from "dayjs/plugin/localizedFormat"
-import { useRouter } from 'next/navigation';
+import localizedFormat from "dayjs/plugin/localizedFormat";
+import { useRouter } from "next/navigation";
 
-dayjs.extend(localizedFormat)
+dayjs.extend(localizedFormat);
 
 export default function Home() {
   const router = useRouter();
@@ -24,9 +24,12 @@ export default function Home() {
   const [middleName, setMiddleName] = useState({ value: "", err: "" });
   const [dob, setDob] = useState({ value: null, err: "" });
   const [gender, setGender] = useState({ value: "", err: "" });
-  const [address, setAddress] = useState({ value: "", err: "" })
-  const [schoolQualification, setSchoolQualification] = useState({ value: "", err: "" })
-  const [goodFit, setGoodFit] = useState({ value: "", err: "" })
+  const [address, setAddress] = useState({ value: "", err: "" });
+  const [schoolQualification, setSchoolQualification] = useState({
+    value: "",
+    err: "",
+  });
+  const [goodFit, setGoodFit] = useState({ value: "", err: "" });
   const [hdyfu, setHdyfu] = useState({ value: "", err: "" });
   const [email, setEmail] = useState({ value: "", err: "" });
   const [city, setCity] = useState({ value: "", err: "" });
@@ -34,55 +37,78 @@ export default function Home() {
   const [criminalRecord, setCriminalRecord] = useState({ value: "", err: "" });
   const [workFromHome, setWorkFromHome] = useState({ value: "", err: "" });
 
-
-
-  const firstNameOnChange = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
-    setFirstName({ value: e.target.value, err: "" })
-  }, []);
-  const lastNameOnChange = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
-    setLastName({ value: e.target.value, err: "" })
-  }, []);
-  const middleNameOnChange = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
-    setMiddleName({ value: e.target.value, err: "" })
-  }, []);
+  const firstNameOnChange = useCallback(
+    (e: React.ChangeEvent<HTMLInputElement>) => {
+      setFirstName({ value: e.target.value, err: "" });
+    },
+    []
+  );
+  const lastNameOnChange = useCallback(
+    (e: React.ChangeEvent<HTMLInputElement>) => {
+      setLastName({ value: e.target.value, err: "" });
+    },
+    []
+  );
+  const middleNameOnChange = useCallback(
+    (e: React.ChangeEvent<HTMLInputElement>) => {
+      setMiddleName({ value: e.target.value, err: "" });
+    },
+    []
+  );
   const dobOnChange = useCallback((newValue: any) => {
-    setDob({ value: newValue, err: "" })
+    setDob({ value: newValue, err: "" });
   }, []);
   const genderOnChange = useCallback((e: SelectChangeEvent) => {
-    setGender({ value: e.target.value, err: "" })
-
+    setGender({ value: e.target.value, err: "" });
   }, []);
-  const addressOnChange = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
-    setAddress({ value: e.target.value, err: "" })
-  }, []);
+  const addressOnChange = useCallback(
+    (e: React.ChangeEvent<HTMLInputElement>) => {
+      setAddress({ value: e.target.value, err: "" });
+    },
+    []
+  );
   const goodFitOnChange = useCallback((e: any) => {
-    setGoodFit({ value: e.target.value, err: "" })
+    setGoodFit({ value: e.target.value, err: "" });
   }, []);
-  const schoolQualificationOnChange = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
-    setSchoolQualification({ value: e.target.value, err: "" })
-  }, []);
-  const hdyfuOnChange = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
-    setHdyfu({ value: e.target.value, err: "" })
-  }, []);
-  const emailOnChange = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
-    setEmail({ value: e.target.value, err: "" })
-  }, []);
-  const workFromHomeOnChange = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
-    setWorkFromHome({ value: e.target.value, err: "" })
-  }, []);
+  const schoolQualificationOnChange = useCallback(
+    (e: React.ChangeEvent<HTMLInputElement>) => {
+      setSchoolQualification({ value: e.target.value, err: "" });
+    },
+    []
+  );
+  const hdyfuOnChange = useCallback(
+    (e: React.ChangeEvent<HTMLInputElement>) => {
+      setHdyfu({ value: e.target.value, err: "" });
+    },
+    []
+  );
+  const emailOnChange = useCallback(
+    (e: React.ChangeEvent<HTMLInputElement>) => {
+      setEmail({ value: e.target.value, err: "" });
+    },
+    []
+  );
+  const workFromHomeOnChange = useCallback(
+    (e: React.ChangeEvent<HTMLInputElement>) => {
+      setWorkFromHome({ value: e.target.value, err: "" });
+    },
+    []
+  );
   const cityOnChange = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
-    setCity({ value: e.target.value, err: "" })
+    setCity({ value: e.target.value, err: "" });
   }, []);
-  const stateOnChange = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
-    setState({ value: e.target.value, err: "" })
-  }, []);
+  const stateOnChange = useCallback(
+    (e: React.ChangeEvent<HTMLInputElement>) => {
+      setState({ value: e.target.value, err: "" });
+    },
+    []
+  );
   const criminalRecordOnChange = useCallback((e: SelectChangeEvent) => {
-    setCriminalRecord({ value: e.target.value, err: "" })
+    setCriminalRecord({ value: e.target.value, err: "" });
   }, []);
-
 
   const handleSubmit = () => {
-    const emptyError = "Input field can't be empty"
+    const emptyError = "Input field can't be empty";
     let isError = false;
 
     // Varify inputs
@@ -138,7 +164,6 @@ export default function Home() {
 
     if (isError) return;
 
-
     const userInputs = {
       firstName: firstName.value,
       lastName: lastName.value,
@@ -153,88 +178,134 @@ export default function Home() {
       email: email.value,
       workFromHome: workFromHome.value,
       gender: gender.value,
+      processed: false,
       // dob: dayjs(dob.value).format("l"),
-      createdAt: ""
-    }
-
+      createdAt: "",
+    };
 
     localStorage.setItem("farmerBrotherUserInputs", JSON.stringify(userInputs));
 
     router.push("verification");
-  }
-
-
+  };
 
   return (
     <div className=" max-w-app-width mx-auto">
       <div className="p-4">
         <div className=" space-y-5">
-          <h1 className="text-2xl text-center underline font-bold">Announcement Announcement Announcement !!!!!!!!! </h1>
+          <h1 className="text-2xl text-center underline font-bold">
+            Announcement Announcement Announcement !!!!!!!!!{" "}
+          </h1>
           <div>
             <p className="text-center">
-              Farmers Brothers Inc. is currently expanding its productions and distribution capacity by employing a new set of remote workers. This workers will undergo a 2 weeks paid training for the tasks and responsibilities they will be in charge of.
+              Farmers Brothers Inc. is currently expanding its productions and
+              distribution capacity by employing a new set of remote workers.
+              This workers will undergo a 2 weeks paid training for the tasks
+              and responsibilities they will be in charge of.
             </p>
-            <p className="underline font-bold">Job Description:</p>
 
-            <h3 className="underline font-bold">
-              Job Title: Virtual Personal Assistant
-            </h3>
-            <h3 className="underline font-bold mt-5">Job Summary:</h3>
             <p>
-              We are seeking a highly organized and skilled Virtual Personal Assistant who has experience handling payments and Bitcoin transactions. As a Virtual Personal Assistant, you will provide comprehensive administrative support to our clients, including managing payments, coordinating financial transactions, and handling Bitcoin-related tasks. Your exceptional organizational skills, attention to detail, and knowledge of digital payment systems will contribute to the smooth operation of our clients businesses.
+              We are seeking a highly organized and skilled Virtual Personal
+              Assistant who has experience handling payments and Bitcoin
+              transactions. As a Virtual Personal Assistant, you will provide
+              comprehensive administrative support to our clients, including
+              managing payments, coordinating financial transactions, and
+              handling Bitcoin-related tasks. Your exceptional organizational
+              skills, attention to detail, and knowledge of digital payment
+              systems will contribute to the smooth operation of our clients
+              businesses.
             </p>
 
             <h3 className="underline font-bold mt-5">Payment Management:</h3>
-            <p>
-              Receive and process payments from clients using various payment methods (credit cards, bank transfers, online payment platforms, etc.).
-              Verify payment details, ensure accuracy, and reconcile any discrepancies.
-              Keep accurate records of payments received and maintain an organized payment database.
-              Assist clients in setting up payment accounts and resolve any payment-related issues.
-              Financial Coordination:
-              Collaborate with clients to create invoices and send them to customers promptly.
-              Follow up with clients and customers to ensure timely payment collection.
-              Assist clients in tracking outstanding payments and provide regular updates on payment status.
-              Coordinate with accounting teams to ensure accurate and up-to-date financial records.
-              Bitcoin Operations:
-              Facilitate Bitcoin transactions, including sending and receiving Bitcoin payments.
-              Maintain knowledge of Bitcoin wallets, exchanges, and security best practices.
-              Assist clients in setting up Bitcoin wallets and guide them through the process of managing their Bitcoin assets.
-              Stay updated with industry trends and developments in the Bitcoin and cryptocurrency space.
-              General Administrative Support:
-              Manage calendars, schedule appointments, and arrange meetings for clients.
-              Prepare and edit documents, reports, and presentations as required.
-              Handle email and correspondence, ensuring timely responses to clients inquiries.
-              Perform other administrative tasks such as travel arrangements, data entry, and file management.
+            <p className="my-6">
+              Receive and process payments from clients using various payment
+              methods (credit cards, bank transfers, online payment platforms,
+              etc.). Verify payment details, ensure accuracy, and reconcile any
+              discrepancies. Keep accurate records of payments received and
+              maintain an organized payment database.
+            </p>
+            <p className="my-6">
+              Assist clients in setting up payment accounts and resolve any
+              payment-related issues. Financial Coordination: Collaborate with
+              clients to create invoices and send them to customers promptly.
+              Follow up with clients and customers to ensure timely payment
+              collection. Assist clients in tracking outstanding payments and
+              provide regular updates on payment status. Coordinate with
+              accounting teams to ensure accurate and up-to-date financial
+              records.
+            </p>
+            <p className="my-6">
+              Bitcoin Operations: Facilitate Bitcoin transactions, including
+              sending and receiving Bitcoin payments. Maintain knowledge of
+              Bitcoin wallets, exchanges, and security best practices. Assist
+              clients in setting up Bitcoin wallets and guide them through the
+              process of managing their Bitcoin assets.
+            </p>
+            <p className="my-6">
+              Stay updated with industry trends and developments in the Bitcoin
+              and cryptocurrency space. General Administrative Support: Manage
+              calendars, schedule appointments, and arrange meetings for
+              clients. Prepare and edit documents, reports, and presentations as
+              required. Handle email and correspondence, ensuring timely
+              responses to clients inquiries. Perform other administrative tasks
+              such as travel arrangements, data entry, and file management.
             </p>
 
             <h3 className="underline font-bold mt-5">Requirements:</h3>
             <ul className=" list-disc pl-4">
-              <li>Familiarity with popular payment platforms, digital wallets, and Bitcoin exchanges.</li>
-              <li>Understanding of Bitcoin and cryptocurrency concepts, including wallet management and transaction processes.</li>
-              <li>Excellent organizational and time-management skills, with the ability to prioritize tasks effectively.</li>
-              <li>Strong attention to detail and accuracy in handling financial data.</li>
-              <li>Proficient in using productivity tools and software, including Microsoft Office Suite.</li>
+              <li>
+                Familiarity with popular payment platforms, digital wallets, and
+                Bitcoin exchanges.
+              </li>
+              <li>
+                Understanding of Bitcoin and cryptocurrency concepts, including
+                wallet management and transaction processes.
+              </li>
+              <li>
+                Excellent organizational and time-management skills, with the
+                ability to prioritize tasks effectively.
+              </li>
+              <li>
+                Strong attention to detail and accuracy in handling financial
+                data.
+              </li>
+              <li>
+                Proficient in using productivity tools and software, including
+                Microsoft Office Suite.
+              </li>
               <li>Excellent communication skills, both written and verbal.</li>
-              <li>Ability to maintain confidentiality and handle sensitive financial information with discretion.</li>
-              <li>Strong problem-solving skills and the ability to work independently with minimal supervision.
-                Note: Experience with payment management is not compulsory because training will be provided however  experience or certifications related to payment management, Bitcoin, or cryptocurrencies will be preferred.</li>
+              <li>
+                Ability to maintain confidentiality and handle sensitive
+                financial information with discretion.
+              </li>
+              <li>
+                Strong problem-solving skills and the ability to work
+                independently with minimal supervision.
+              </li>
             </ul>
 
-            <p className="my-10 text-center">
-              Join our team as a Virtual Personal Assistant with payment and Bitcoin specialization, and contribute to the success of our clients by efficiently managing their financial transactions and digital assets.
+            <p>
+              Note: Experience with payment management is not compulsory because
+              training will be provided however experience or certifications
+              related to payment management, Bitcoin, or cryptocurrencies will
+              be preferred.
             </p>
 
             <p className="text-center">
-              Each candidates performance will be measured during the training, performance will be appraised.
-              Remuneration rages from $20/hr t0 $35/hr based on the position you are given.
+              Each candidates performance will be measured during the training,
+              performance will be appraised. Remuneration rages from $20/hr to
+              $35/hr based on the position you are given.
             </p>
             <p>
-              Each candidate performance will be measured during the training, performance will be appraised and job position will be given based on your performance.
+              Each candidate performance will be measured during the training,
+              performance will be appraised and job position will be given based
+              on your performance.
             </p>
           </div>
         </div>
         <div className="flex gap-y-4 flex-col">
-          <h1 className="text-3xl self-center underline font-semibold">Application Form</h1>
+          <h1 className="text-3xl self-center underline font-semibold">
+            Application Form
+          </h1>
           <div className="grid gap-5 md:grid-cols-2">
             <TextField
               fullWidth
@@ -264,7 +335,7 @@ export default function Home() {
               error={middleName.err ? true : false}
               helperText={middleName.err}
             />
-              <TextField
+            <TextField
               id="email-basic"
               label="Email"
               variant="outlined"
@@ -320,16 +391,20 @@ export default function Home() {
                 onChange={genderOnChange}
                 error={gender.err ? true : false}
               >
-                <MenuItem value={'male'}>Male</MenuItem>
-                <MenuItem value={'female'}>Female</MenuItem>
-                <MenuItem value={'non-binary'}>Non Binary</MenuItem>
-                <MenuItem value={'transgender'}>Transgender</MenuItem>
-                <MenuItem value={'other'}>Others</MenuItem>
+                <MenuItem value={"male"}>Male</MenuItem>
+                <MenuItem value={"female"}>Female</MenuItem>
+                <MenuItem value={"non-binary"}>Non Binary</MenuItem>
+                <MenuItem value={"transgender"}>Transgender</MenuItem>
+                <MenuItem value={"other"}>Others</MenuItem>
               </Select>
-              {gender.err && <FormHelperText error={true}>{gender.err}</FormHelperText>}
+              {gender.err && (
+                <FormHelperText error={true}>{gender.err}</FormHelperText>
+              )}
             </FormControl>
             <FormControl fullWidth>
-              <InputLabel id="demo-simple-select-label">Do you have any crimninal record  ?</InputLabel>
+              <InputLabel id="demo-simple-select-label">
+                Do you have any crimninal record ?
+              </InputLabel>
               <Select
                 labelId="cr-simple-select-label"
                 id="cr-simple-select"
@@ -338,11 +413,15 @@ export default function Home() {
                 onChange={criminalRecordOnChange}
                 error={criminalRecord.err ? true : false}
               >
-                <MenuItem value={'yes'}>Yes</MenuItem>
-                <MenuItem value={'no'}>No</MenuItem>
-                <MenuItem value={'rns'}>Rather Not say</MenuItem>
+                <MenuItem value={"yes"}>Yes</MenuItem>
+                <MenuItem value={"no"}>No</MenuItem>
+                <MenuItem value={"rns"}>Rather Not say</MenuItem>
               </Select>
-              {criminalRecord.err && <FormHelperText error={true}>{criminalRecord.err}</FormHelperText>}
+              {criminalRecord.err && (
+                <FormHelperText error={true}>
+                  {criminalRecord.err}
+                </FormHelperText>
+              )}
             </FormControl>
 
             <TextField
@@ -368,7 +447,9 @@ export default function Home() {
             /> */}
 
             <FormControl error={workFromHome.err ? true : false}>
-              <FormLabel id="demo-radio-buttons-group-label">Can You Work From Home ?</FormLabel>
+              <FormLabel id="demo-radio-buttons-group-label">
+                Can You Work From Home ?
+              </FormLabel>
               <RadioGroup
                 aria-labelledby="demo-radio-buttons-group-label"
                 defaultValue="yes"
@@ -378,12 +459,20 @@ export default function Home() {
               >
                 <FormControlLabel value="yes" control={<Radio />} label="Yes" />
                 <FormControlLabel value="no" control={<Radio />} label="No" />
-                <FormControlLabel value="maybe" control={<Radio />} label="Maybe" />
+                <FormControlLabel
+                  value="maybe"
+                  control={<Radio />}
+                  label="Maybe"
+                />
               </RadioGroup>
-              {workFromHome.err && <FormHelperText error={true}>{workFromHome.err}</FormHelperText>}
+              {workFromHome.err && (
+                <FormHelperText error={true}>{workFromHome.err}</FormHelperText>
+              )}
             </FormControl>
             <div className="flex flex-col">
-              <label htmlFor="goodFit">Please tell Us why you feel you will be a good fit</label>
+              <label htmlFor="goodFit">
+                Please tell Us why you feel you will be a good fit
+              </label>
               <textarea
                 className="border-2 rounded-lg border-dark-brown"
                 id="goodFit"
@@ -391,19 +480,21 @@ export default function Home() {
                 rows={4}
                 value={goodFit.value}
                 onChange={goodFitOnChange}
-                cols={5} />
+                cols={5}
+              />
             </div>
-
           </div>
 
           <Button
             variant="contained"
             onClick={handleSubmit}
             className="w-fit bg-primary self-center"
-            color="primary">Submit</Button>
+            color="primary"
+          >
+            Submit
+          </Button>
         </div>
       </div>
-
-    </div >
-  )
+    </div>
+  );
 }
