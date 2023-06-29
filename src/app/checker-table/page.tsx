@@ -1,14 +1,23 @@
 "use client";
 import React, { useEffect, useMemo, useRef, useState } from "react";
-import { collection, getDocs } from "firebase/firestore";
+import { collection, getDocs, query, where } from "firebase/firestore";
 import { firestoreDb } from "@/db/firebase";
 import TableItem from "./_local-components/TableItem";
 import TableHead from "./_local-components/TableHead";
 import TablePagination from "./_local-components/TablePagination";
+import {
+  FormControl,
+  InputLabel,
+  MenuItem,
+  Select,
+  SelectChangeEvent,
+} from "@mui/material";
+import { ToastContainer } from "react-toastify";
 
 function CheckerTable() {
   const [users, setUsers] = useState<any[]>([]);
   const [currentPageCount, setCurrentPageCount] = useState(1);
+  const [filterBy, setFilterBy] = useState("all");
   const userPerPage = 10;
 
   const dbUserRef = useRef(collection(firestoreDb, "users"));
@@ -27,7 +36,16 @@ function CheckerTable() {
       const userList: any[] = [];
 
       try {
-        const docSnap = await getDocs(dbUserRef.current);
+        // Query Database base on user filter input
+        let q = query(dbUserRef.current);
+
+        if (filterBy === "unprocessed") {
+          q = query(dbUserRef.current, where("processed", "==", false));
+        } else if (filterBy === "processed") {
+          q = query(dbUserRef.current, where("processed", "==", true));
+        }
+        const docSnap = await getDocs(q);
+
         docSnap.forEach((doc) => {
           const data = doc.data();
           data.createdAt = data.createdAt.toDate().toString();
@@ -41,7 +59,11 @@ function CheckerTable() {
       }
     };
     getAllRegisteredUsers();
-  }, []);
+  }, [filterBy]);
+
+  const filterByOnChange = (event: SelectChangeEvent) => {
+    setFilterBy(event.target.value);
+  };
 
   const handleCurrentPageChange = (
     e: React.ChangeEvent<unknown>,
@@ -51,6 +73,20 @@ function CheckerTable() {
   };
   return (
     <div className="p-4">
+      <FormControl sx={{ my: "20px" }} fullWidth>
+        <InputLabel id="demo-simple-select-label">Filter User</InputLabel>
+        <Select
+          labelId="demo-simple-select-label"
+          id="demo-simple-select"
+          value={filterBy}
+          label="Filter User"
+          onChange={filterByOnChange}
+        >
+          <MenuItem value={"all"}>All</MenuItem>
+          <MenuItem value={"processed"}>Processed</MenuItem>
+          <MenuItem value={"unprocessed"}>Unprocessed</MenuItem>
+        </Select>
+      </FormControl>
       <div className=" overflow-x-auto">
         <table className="w-[1600px] border-collapse border">
           <TableHead />
@@ -71,6 +107,7 @@ function CheckerTable() {
         currentPageCount={currentPageCount}
         currentPageOnChange={handleCurrentPageChange}
       />
+      <ToastContainer position="top-right" autoClose={1000} />
     </div>
   );
 }

@@ -3,7 +3,7 @@ import Switch from "@mui/material/Switch";
 import { doc, updateDoc } from "firebase/firestore";
 import { firestoreDb } from "@/db/firebase";
 import copyTextToClipboard from "@/app/_utils/copyToClipBoard";
-import { ToastContainer, toast } from "react-toastify";
+import { toast } from "react-toastify";
 
 interface PropType {
   user: any;
@@ -106,7 +106,6 @@ function TableItem({ user, index }: PropType) {
           />
         </td>
       </tr>
-      <ToastContainer position="top-right" autoClose={1000} />
     </>
   );
 }
